@@ -1,9 +1,10 @@
-class Job {
-  // name of the job
+// model for payments of the household or an user
+abstract class Payment {
+  // name of the expense
   private _name: string;
-  // amount the jobs pays per period
+  // amount the payments amount per period
   private _amount: number;
-  // period in which the job pays out in days
+  // period of the payment in days
   private _period: number;
 
   constructor(name: string, amount: number, period: number) {
@@ -35,4 +36,4 @@ class Job {
   }
 }
 
-export default Job;
+export default Payment;
