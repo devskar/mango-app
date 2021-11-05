@@ -1,9 +1,10 @@
+import { makeAutoObservable } from 'mobx';
 import Expense from './ExpenseModel';
 import Income from './IncomeModel';
 import Resident from './ResidentModel';
 import SpendingPlan from './SpendingPlanModel';
 
-class Household {
+class HouseholdModel {
   private _name: String;
   private _spendingPlan: SpendingPlan;
   private _residents: Resident[];
@@ -17,6 +18,7 @@ class Household {
     incomes: Income[] = [],
     expenses: Expense[] = [],
   ) {
+    makeAutoObservable(this);
     this._name = name;
     this._spendingPlan = spendingPlan;
     this._residents = residents;
@@ -32,18 +34,8 @@ class Household {
     this._spendingPlan = value;
   }
 
-  public addIncome(...newIncomes: Income[]): Income[] {
-    this._incomes.push(...newIncomes);
-    return this._incomes;
-  }
-
   public get incomes(): Income[] {
     return this._incomes;
-  }
-
-  public addExpense(...newExpenses: Expense[]): Expense[] {
-    this._expenses.push(...newExpenses);
-    return this._expenses;
   }
 
   public get expenses(): Expense[] {
@@ -63,9 +55,10 @@ class Household {
   public get residents(): Resident[] {
     return this._residents;
   }
+
   public set residents(value: Resident[]) {
     this._residents = value;
   }
 }
 
-export default Household;
+export default HouseholdModel;

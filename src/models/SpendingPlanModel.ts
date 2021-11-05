@@ -1,27 +1,52 @@
-export interface Share {
+import { makeAutoObservable } from 'mobx';
+class Share {
   // name of the share eg. House planning
-  name: string;
+  private _name: string;
   // percentage you plan to use the share for
-  amount: number;
+  private _amount: number;
+
+  constructor(name: string, amount: number) {
+    this._name = name;
+    this._amount = amount;
+  }
+
+  public get name(): string {
+    return this._name;
+  }
+
+  public set name(value: string) {
+    this._name = value;
+  }
+
+  public get amount(): number {
+    return this._amount;
+  }
+
+  public set amount(value: number) {
+    this._amount = value;
+  }
 }
 
 class SpendingPlan {
-  private _leftOverPercentage: number;
   private _shares: Share[];
 
   constructor(shares: Share[] = []) {
-    this._leftOverPercentage = 100;
     this._shares = shares;
-    this._updateLeftOverPercentage();
+    makeAutoObservable(this);
   }
 
-  private _updateLeftOverPercentage() {
-    this._leftOverPercentage = 100;
+  public addShare(share: Share) {
+    this._shares.push(share);
+  }
 
-    this._shares.forEach((share) => {
-      this._leftOverPercentage -= share.amount;
-    });
+  public get shares(): Share[] {
+    return this._shares;
+  }
+
+  public set shares(value: Share[]) {
+    this._shares = value;
   }
 }
 
 export default SpendingPlan;
+export { Share };
