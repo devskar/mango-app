@@ -1,3 +1,5 @@
+import { makeAutoObservable } from 'mobx';
+
 // model for payments of the household or an user
 abstract class Payment {
   // name of the expense
@@ -8,6 +10,7 @@ abstract class Payment {
   private _period: number;
 
   constructor(name: string, amount: number, period: number) {
+    makeAutoObservable(this);
     this._name = name;
     this._amount = amount;
     this._period = period;

@@ -1,3 +1,4 @@
+import { makeAutoObservable } from 'mobx';
 import Expense from './ExpenseModel';
 import Income from './IncomeModel';
 
@@ -8,6 +9,7 @@ class Resident {
   private _expenses: Expense[];
 
   constructor(name: string, incomes: Income[] = [], expenses: Expense[] = []) {
+    makeAutoObservable(this);
     this._incomes = incomes;
     this._expenses = expenses;
     this._name = name;

@@ -6,6 +6,7 @@ class Share {
   private _amount: number;
 
   constructor(name: string, amount: number) {
+    makeAutoObservable(this);
     this._name = name;
     this._amount = amount;
   }
@@ -33,10 +34,6 @@ class SpendingPlan {
   constructor(shares: Share[] = []) {
     this._shares = shares;
     makeAutoObservable(this);
-  }
-
-  public addShare(share: Share) {
-    this._shares.push(share);
   }
 
   public get shares(): Share[] {
