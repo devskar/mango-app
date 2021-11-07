@@ -57,7 +57,7 @@ const SpendingPlanView = () => {
     ],
   };
   return (
-    <div style={{ width: '300px', height: '300px' }}>
+    <div id='spendingPlanDoughnut' style={{ width: '300px', height: '300px' }}>
       <Doughnut data={data}></Doughnut>
     </div>
   );

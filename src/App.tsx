@@ -1,14 +1,14 @@
 import React from 'react';
-import HouseholdView from './components/HouseholdView';
 import SpendingPlanView from './components/SpendingPlanView';
 import './styles/index.css';
+import './styles/positioning.css';
 
 function App() {
   return (
-    <div>
+    <div id='display'>
       Mango
       <SpendingPlanView />
-      <HouseholdView />
+      {/* <HouseholdView /> */}
     </div>
   );
 }
