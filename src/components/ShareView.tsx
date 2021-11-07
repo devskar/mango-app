@@ -5,14 +5,14 @@ import { Share } from '../models/SpendingPlanModel';
 
 interface Props {}
 
-const HouseholdView: React.FC<Props> = () => {
+const ShareView: React.FC<Props> = () => {
   const household = useContext(HouseholdControllerContext);
 
   const nameRef = useRef<HTMLInputElement>(null);
   const amountRef = useRef<HTMLInputElement>(null);
 
   return (
-    <div>
+    <div id='shareView'>
       <p>{household.name}</p>
       Add a Share:
       <input ref={nameRef} type='text' />
@@ -30,4 +30,4 @@ const HouseholdView: React.FC<Props> = () => {
   );
 };
 
-export default observer(HouseholdView);
+export default observer(ShareView);

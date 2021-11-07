@@ -1,17 +1,17 @@
 import { makeAutoObservable } from 'mobx';
 
 class HouseholdModel {
-  private _name: String;
+  private _name: string;
 
-  constructor(name: String) {
+  constructor(name: string) {
     makeAutoObservable(this);
     this._name = name;
   }
 
-  public get name(): String {
+  public get name(): string {
     return this._name;
   }
-  public set name(value: String) {
+  public set name(value: string) {
     this._name = value;
   }
 }

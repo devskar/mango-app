@@ -57,8 +57,31 @@ const SpendingPlanView = () => {
     ],
   };
   return (
-    <div id='spendingPlanDoughnut' style={{ width: '300px', height: '300px' }}>
-      <Doughnut data={data}></Doughnut>
+    <div id='spendingPlanDoughnutContainer'>
+      <Doughnut
+        options={{
+          plugins: {
+            title: {
+              display: true,
+              text: household.name,
+              font: { size: 20 },
+            },
+            subtitle: {
+              display: true,
+              text: 'Overview of your households spending plan',
+              font: { size: 14 },
+              padding: {
+                bottom: 10,
+              },
+            },
+
+            legend: {
+              display: false,
+            },
+          },
+        }}
+        data={data}
+      ></Doughnut>
     </div>
   );
 };

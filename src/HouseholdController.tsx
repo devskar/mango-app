@@ -67,10 +67,10 @@ class HouseholdController {
     this._expenses = value;
   }
 
-  public get name(): String {
+  public get name(): string {
     return this._model.name;
   }
-  public set name(value: String) {
+  public set name(value: string) {
     this._model.name = value;
   }
 
