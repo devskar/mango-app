@@ -26,6 +26,15 @@
 }
 
 #shareView {
-  grid-column: 11 / span 1;
-  grid-row: 0 / span 2;
+  height: 100vh;
+
+  grid-column: 11 / span 2;
+  grid-row: 0 / span 8;
+}
+
+#expenseView {
+  height: 100vh;
+
+  grid-column: 1 / span 2;
+  grid-row: 0 / span 8;
 }

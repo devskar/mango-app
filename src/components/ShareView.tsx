@@ -12,7 +12,10 @@ const ShareView: React.FC<Props> = () => {
   const amountRef = useRef<HTMLInputElement>(null);
 
   return (
-    <div id='shareView'>
+    /* TODO: remove backgroundColor */
+
+    <div id='shareView' style={{ backgroundColor: 'green' }}>
+      <h1>Shares</h1>
       <p>{household.name}</p>
       Add a Share:
       <input ref={nameRef} type='text' />
