@@ -1,5 +1,6 @@
 {
   "name": "mango",
+  "author": "devskar (https://github.com/devskar/)",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -43,5 +44,17 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "Simple manager for your households spending and earning.",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devskar/mango.git"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/devskar/mango/issues"
+  },
+  "homepage": "https://github.com/devskar/mango#readme"
 }
