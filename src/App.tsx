@@ -1,6 +1,7 @@
 import React from 'react';
 import HouseholdView from './components/HouseholdView';
 import SpendingPlanView from './components/SpendingPlanView';
+import './styles/index.css';
 
 function App() {
   return (

@@ -16,7 +16,7 @@ const HouseholdView: React.FC<Props> = () => {
       <p>{household.name}</p>
       Add a Share:
       <input ref={nameRef} type='text' />
-      <input ref={amountRef} type='number' />
+      <input ref={amountRef} type='number' min={0} max={100} />
       <button
         onClick={() => {
           household.addShare(
