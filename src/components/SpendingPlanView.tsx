@@ -36,7 +36,7 @@ const SpendingPlanView = () => {
       ],
     ]);
   };
-
+  // TODO: Reverse the order of shares so it slides just on it and not over everything
   const data = {
     labels: [
       ...(household.hasUnusedPercentage() ? ['rest'] : []),
