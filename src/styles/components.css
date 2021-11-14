@@ -1,0 +1,35 @@
+.shareCardContainer {
+  padding-top: 10px;
+}
+
+.shareInput {
+  display: flex;
+  flex-direction: column;
+}
+
+.shareCard {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(160, 79, 79);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid black;
+  transition: all 0.3s ease;
+}
+
+.shareCard > * {
+  margin: 10px;
+}
+
+.shareCardButton {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: transparent;
+  cursor: pointer;
+}

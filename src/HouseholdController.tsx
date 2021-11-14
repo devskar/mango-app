@@ -5,6 +5,7 @@ import HouseholdModel from './models/HouseholdModel';
 import Income from './models/IncomeModel';
 import Resident from './models/ResidentModel';
 import SpendingPlan, { Share } from './models/SpendingPlanModel';
+import { generateRandomId } from './utils/Utils';
 
 class HouseholdController {
   static MAX_PERCENTAGE = 100;
@@ -29,13 +30,20 @@ class HouseholdController {
     this._incomes = [];
   }
 
-  public addShare(share: Share) {
-    if (
-      share.amount + this.getGetUsedPercentage() <=
-      HouseholdController.MAX_PERCENTAGE
-    ) {
+  public appendShare(share: Share): void {
+    if (0 < share.amount && share.amount <= this.getUnusedPercentage()) {
       this._spendingPlan.shares.push(share);
     }
+  }
+
+  public addShare(name: string, amount: number): void {
+    this.appendShare(new Share(name, amount, generateRandomId()));
+  }
+
+  public removeShare(share: Share) {
+    this._spendingPlan.shares = this._spendingPlan.shares.filter(
+      (s) => s.id !== share.id,
+    );
   }
 
   public get shares(): Share[] {
