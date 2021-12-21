@@ -7,11 +7,6 @@ import './styles/positioning.css';
 
 function App() {
   return (
-    <div id='display'>
-      <ExpenseView />
-      <SpendingPlanView />
-      <ShareView />
-    </div>
   );
 }
 
