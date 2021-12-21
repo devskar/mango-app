@@ -1,3 +1,8 @@
+
+#shareViews  {
+  overflow: scroll;
+}
+
 .shareCardContainer {
   padding-top: 10px;
 }
