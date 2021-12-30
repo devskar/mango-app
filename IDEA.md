@@ -4,7 +4,7 @@
 
 Mango is supposed to help anybody to manage their households financial problems. 
 
-[current app design](https://www.figma.com/file/ZTA7ZGWdxtxuQzStkAQOqo/App-Design){:target="_blank" rel="noopener"}
+[current app design](https://www.figma.com/file/ZTA7ZGWdxtxuQzStkAQOqo/App-Design)
 
 ### Incomes and Expenses
 
