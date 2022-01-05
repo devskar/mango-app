@@ -1,4 +1,4 @@
-# ⚠️in developement⚠️
+# ⚠️in development⚠️
 
 # Mango
 
