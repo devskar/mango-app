@@ -1,9 +1,12 @@
+import { registerRootComponent } from 'expo';
 import React from 'react';
 import { Platform, SafeAreaView, StatusBar, StyleSheet } from 'react-native';
 
-export default function App() {
+const App = () => {
   return <SafeAreaView style={styles.container}></SafeAreaView>;
-}
+};
+
+export default registerRootComponent(App);
 
 const styles = StyleSheet.create({
   container: {
