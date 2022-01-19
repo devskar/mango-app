@@ -4,6 +4,7 @@ node_modules/
 .vscode/
 dist/
 npm-debug.*
+yarn.lock
 *.jks
 *.p8
 *.p12
