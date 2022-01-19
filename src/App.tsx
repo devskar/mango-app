@@ -29,7 +29,7 @@ const App = () => {
             fontSize: 28,
             fontWeight: '500',
             fontFamily: 'Quicksand',
-            color: 'black',
+            color: styleProperties.primary_text_color,
           },
           headerTintColor: styleProperties.primary_highlight_color,
           headerBackTitleStyle: {
