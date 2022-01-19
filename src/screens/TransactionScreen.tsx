@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, TouchableHighlight, View } from 'react-native';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import AppText from '../components/AppText';
 import styleProperties from '../config/styleProperties';
 import { Props } from './RootStackParams';
@@ -7,12 +7,12 @@ import { Props } from './RootStackParams';
 const TransactionScreen = ({ route, navigation }: Props) => {
   return (
     <View style={styles.screen}>
-      <TouchableHighlight
+      <TouchableOpacity
         style={styles.addTransactionButton}
-        onPress={() => navigation.navigate('Main')}
+        onPress={() => navigation.navigate('AddTransaction')}
       >
-        <AppText>test</AppText>
-      </TouchableHighlight>
+        <AppText>add Transaction</AppText>
+      </TouchableOpacity>
     </View>
   );
 };
