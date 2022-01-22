@@ -30,6 +30,7 @@ const App = () => {
             fontWeight: '500',
             fontFamily: 'Quicksand',
             color: styleProperties.primary_text_color,
+            width: '100%',
           },
           headerTintColor: styleProperties.primary_highlight_color,
           headerBackTitleStyle: {
@@ -40,12 +41,20 @@ const App = () => {
         }}
         initialRouteName='Main'
       >
-        <Stack.Screen name='Main' component={MainScreen} />
-        <Stack.Screen name='Transactions' component={TransactionScreen} />
+        <Stack.Screen
+          name='Main'
+          component={MainScreen}
+          options={{ title: 'HOUSEHOLD OVERVIEW' }}
+        />
+        <Stack.Screen
+          name='Transactions'
+          component={TransactionScreen}
+          options={{ title: 'TRANSACTIONS' }}
+        />
         <Stack.Screen
           name='AddTransaction'
           component={AddTransactionScreen}
-          options={{ title: 'new Transaction' }}
+          options={{ title: 'NEW TRANSACTION' }}
         />
       </Stack.Navigator>
     </NavigationContainer>

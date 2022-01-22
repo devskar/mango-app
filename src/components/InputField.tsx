@@ -28,11 +28,13 @@ const InputField: React.FC<Props> = ({
 
 const styles = StyleSheet.create({
   input: {
-    height: 40,
-    margin: 12,
-    borderWidth: 1,
+    height: 50,
+    width: '100%',
     padding: 10,
+    borderWidth: 1,
     borderRadius: 20,
+
+    fontSize: 20,
     backgroundColor: styleProperties.primary_highlight_color,
   },
 });
