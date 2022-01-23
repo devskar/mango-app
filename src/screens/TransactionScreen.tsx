@@ -1,18 +1,18 @@
 import React from 'react';
-import { StyleSheet, TouchableOpacity, View } from 'react-native';
-import AppText from '../components/AppText';
+import { StyleSheet, View } from 'react-native';
+import AppButton from '../components/AppButton';
 import styleProperties from '../config/styleProperties';
 import { Props } from './RootStackParams';
 
 const TransactionScreen = ({ route, navigation }: Props) => {
   return (
     <View style={styles.screen}>
-      <TouchableOpacity
+      <AppButton
         style={styles.addTransactionButton}
         onPress={() => navigation.navigate('AddTransaction')}
       >
-        <AppText>add Transaction</AppText>
-      </TouchableOpacity>
+        add Transaction
+      </AppButton>
     </View>
   );
 };
@@ -25,18 +25,8 @@ const styles = StyleSheet.create({
   },
   addTransactionButton: {
     position: 'absolute',
-    flex: 1,
-    width: 162,
-    height: 50,
     bottom: 50,
     right: 30,
-
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: styleProperties.primary_highlight_color,
-    borderRadius: 10,
-    borderWidth: 1.5,
-    borderColor: 'black',
   },
 });
 export default TransactionScreen;
