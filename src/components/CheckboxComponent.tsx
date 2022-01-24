@@ -18,7 +18,7 @@ const CheckboxComponent: React.FC<Props> = ({
 }: Props) => {
   return (
     <BouncyCheckbox
-      style={{ ...styles.input, ...style }}
+      style={[styles.input, style]}
       size={25}
       unfillColor={styleProperties.primary_highlight_color}
       fillColor={styleProperties.primary_highlight_color}

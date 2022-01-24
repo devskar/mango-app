@@ -21,7 +21,7 @@ const AppText = ({ children, style, type = 'primary' }: Props) => {
     },
   });
 
-  return <Text style={{ ...styles.text, ...style }}>{children}</Text>;
+  return <Text style={[styles.text, style]}>{children}</Text>;
 };
 
 export default AppText;

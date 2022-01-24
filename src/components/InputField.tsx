@@ -16,10 +16,11 @@ const InputField: React.FC<Props> = ({
   return (
     <View>
       <TextInput
-        style={{ ...styles.input, ...style }}
+        style={[styles.input, style]}
         placeholder={placeholder}
         placeholderTextColor={styleProperties.secondary_text_color}
         autoCapitalize='none'
+        autoCorrect={false}
         onChangeText={onChangeText}
       />
     </View>

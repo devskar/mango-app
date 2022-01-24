@@ -1,32 +1,43 @@
 import React, { useState } from 'react';
 import { StyleSheet } from 'react-native';
-import DropDownPicker, { ValueType } from 'react-native-dropdown-picker';
+import DropDownPicker, {
+  ItemType,
+  ValueType,
+} from 'react-native-dropdown-picker';
 import styleProperties from '../config/styleProperties';
 
 interface Props {
   placeholder?: string;
   style?: object;
+  items: ItemType[];
+  searchable?: boolean;
 }
 
-const InputDropDown: React.FC<Props> = ({ placeholder, style }: Props) => {
+const InputDropDown: React.FC<Props> = ({
+  placeholder,
+  style,
+  searchable = true,
+  items,
+}: Props) => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState<ValueType | null>(null);
-  const [items, setItems] = useState([
-    { label: 'Apple', value: 'apple' },
-    { label: 'Banana', value: 'banana' },
-  ]);
+  const [dropdownItems, setDropdownItems] = useState(items);
 
   return (
     <DropDownPicker
       open={open}
       setOpen={setOpen}
-      multiple={false}
-      items={items}
-      placeholder={placeholder}
       value={value}
       setValue={setValue}
-      style={{ ...style, ...styles.input }}
+      multiple={false}
+      items={dropdownItems}
+      searchable={searchable}
+      addCustomItem={true}
+      searchPlaceholder='Search...'
+      placeholder={placeholder}
+      style={[style, styles.input]}
       placeholderStyle={styles.placeholder}
+      searchTextInputStyle={styles.placeholder}
       textStyle={styles.text}
       dropDownContainerStyle={styles.dropDownContainer}
     />
