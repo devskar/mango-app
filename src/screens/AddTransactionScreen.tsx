@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
+import SwitchSelector from 'react-native-switch-selector';
 import AppButton from '../components/AppButton';
 import CheckboxComponent from '../components/CheckboxComponent';
 import InputDropDown from '../components/InputDropDown';
@@ -8,23 +9,70 @@ import styleProperties from '../config/styleProperties';
 
 interface Props {}
 
+type TransactionType = 'income' | 'expense';
+
+type ValueType = {
+  transactionType: TransactionType;
+  name: string;
+  amount: number;
+  category: string;
+  scheduled: boolean;
+  requiresConfirmation: boolean;
+  saveAsTemplate: boolean;
+  date: Date;
+};
+
 const AddTransactionScreen: React.FC<Props> = () => {
-  const [testText, onChangeTestText] = React.useState('');
+  const [values, setValues] = React.useState<ValueType>({
+    transactionType: 'expense',
+    name: '',
+    amount: 0,
+    category: '',
+    scheduled: false,
+    requiresConfirmation: false,
+    saveAsTemplate: false,
+    date: new Date(),
+  });
 
   return (
     <View style={styles.screen}>
       <View style={styles.container}>
+        {/* Expense or Income */}
+        <SwitchSelector
+          initial={0}
+          onPress={(value) => {
+            setValues({ ...values, transactionType: value as TransactionType });
+          }}
+          backgroundColor={styleProperties.primary_highlight_color}
+          buttonColor={styleProperties.secondary_background_color}
+          borderRadius={20}
+          borderColor='black'
+          textStyle={styles.text}
+          selectedTextStyle={styles.text}
+          options={[
+            { label: 'expense', value: 'expense' },
+            { label: 'income', value: 'income' },
+          ]}
+        />
+        {/* Name */}
         <InputField
           style={styles.childInputField}
-          onChangeText={onChangeTestText}
+          onChangeText={(value) => setValues({ ...values, name: value })}
           placeholder={'Name'}
         />
+        {/* Amount */}
         <InputField
           style={styles.childInputField}
-          onChangeText={onChangeTestText}
+          onChangeText={(value) =>
+            setValues({ ...values, amount: parseFloat(value) })
+          }
           placeholder={'Amount'}
         />
+        {/* Category */}
         <InputDropDown
+          onSelectItem={(item) =>
+            setValues({ ...values, category: item.label ? item.label : '' })
+          }
           style={styles.childInputField}
           placeholder={'Category'}
           items={[
@@ -34,20 +82,40 @@ const AddTransactionScreen: React.FC<Props> = () => {
           // TODO: enable search
           searchable={false}
         />
+        {/* Scheduled */}
         <CheckboxComponent
+          onPress={(isChecked) =>
+            setValues({ ...values, scheduled: isChecked })
+          }
           placeholder='scheduled'
           style={styles.childCheckbox}
         />
+        {/* Requires Confirmation */}
         <CheckboxComponent
+          onPress={(isChecked) =>
+            setValues({ ...values, requiresConfirmation: isChecked })
+          }
           placeholder='require confirmation'
           style={styles.childCheckbox}
         />
+        {/* Save as Template */}
         <CheckboxComponent
+          onPress={(isChecked) =>
+            setValues({ ...values, saveAsTemplate: isChecked })
+          }
           placeholder='save as template'
           style={styles.childCheckbox}
         />
       </View>
-      <AppButton style={styles.saveButton}>save</AppButton>
+      <AppButton
+        style={styles.saveButton}
+        onPress={() => {
+          setValues({ ...values, date: new Date() });
+          console.log(values);
+        }}
+      >
+        save
+      </AppButton>
     </View>
   );
 };
@@ -73,6 +141,21 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 50,
     right: 30,
+  },
+  switchSelector: {
+    height: 50,
+    borderWidth: 1,
+    borderRadius: 20,
+
+    fontSize: 20,
+    backgroundColor: styleProperties.primary_highlight_color,
+  },
+  text: {
+    fontFamily: 'Quicksand',
+  },
+  selectedText: {
+    fontFamily: 'Quicksand',
+    color: 'white',
   },
 });
 

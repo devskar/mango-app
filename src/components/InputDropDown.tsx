@@ -11,6 +11,7 @@ interface Props {
   style?: object;
   items: ItemType[];
   searchable?: boolean;
+  onSelectItem?: (item: ItemType) => void;
 }
 
 const InputDropDown: React.FC<Props> = ({
@@ -18,8 +19,10 @@ const InputDropDown: React.FC<Props> = ({
   style,
   searchable = true,
   items,
+  onSelectItem,
 }: Props) => {
   const [open, setOpen] = useState(false);
+
   const [value, setValue] = useState<ValueType | null>(null);
   const [dropdownItems, setDropdownItems] = useState(items);
 
@@ -40,6 +43,7 @@ const InputDropDown: React.FC<Props> = ({
       searchTextInputStyle={styles.placeholder}
       textStyle={styles.text}
       dropDownContainerStyle={styles.dropDownContainer}
+      onSelectItem={onSelectItem}
     />
   );
 };
