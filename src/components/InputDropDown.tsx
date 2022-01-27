@@ -22,7 +22,7 @@ const InputDropDown: React.FC<Props> = ({
   onSelectItem,
 }: Props) => {
   const [open, setOpen] = useState(false);
-
+  // TODO: devskar/mango-app#1
   const [value, setValue] = useState<ValueType | null>(null);
   const [dropdownItems, setDropdownItems] = useState(items);
 

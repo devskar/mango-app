@@ -83,13 +83,14 @@ const AddTransactionScreen: React.FC<Props> = () => {
           searchable={false}
         />
         {/* Scheduled */}
-        <CheckboxComponent
+        {/* TODO: Add scheduled option */}
+        {/* <CheckboxComponent
           onPress={(isChecked) =>
             setValues({ ...values, scheduled: isChecked })
           }
           placeholder='scheduled'
           style={styles.childCheckbox}
-        />
+        /> */}
         {/* Requires Confirmation */}
         <CheckboxComponent
           onPress={(isChecked) =>
@@ -99,13 +100,14 @@ const AddTransactionScreen: React.FC<Props> = () => {
           style={styles.childCheckbox}
         />
         {/* Save as Template */}
-        <CheckboxComponent
+        {/* TODO: Add save as template option. Issue:  */}
+        {/* <CheckboxComponent
           onPress={(isChecked) =>
             setValues({ ...values, saveAsTemplate: isChecked })
           }
           placeholder='save as template'
           style={styles.childCheckbox}
-        />
+        /> */}
       </View>
       <AppButton
         style={styles.saveButton}
