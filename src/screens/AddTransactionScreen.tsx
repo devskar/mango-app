@@ -2,7 +2,6 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import SwitchSelector from 'react-native-switch-selector';
 import AppButton from '../components/AppButton';
-import CheckboxComponent from '../components/CheckboxComponent';
 import InputDropDown from '../components/InputDropDown';
 import InputField from '../components/InputField';
 import styleProperties from '../config/styleProperties';
@@ -79,11 +78,11 @@ const AddTransactionScreen: React.FC<Props> = () => {
             { label: 'test', value: 'test' },
             { label: 'test2', value: 'test2' },
           ]}
-          // TODO: enable search
+          // TODO: enable search #15
           searchable={false}
         />
         {/* Scheduled */}
-        {/* TODO: Add scheduled option */}
+        {/* TODO: Add scheduled option #13 */}
         {/* <CheckboxComponent
           onPress={(isChecked) =>
             setValues({ ...values, scheduled: isChecked })
@@ -92,15 +91,16 @@ const AddTransactionScreen: React.FC<Props> = () => {
           style={styles.childCheckbox}
         /> */}
         {/* Requires Confirmation */}
-        <CheckboxComponent
+        {/* TODO: Add require confirmation option #14 */}
+        {/* <CheckboxComponent
           onPress={(isChecked) =>
             setValues({ ...values, requiresConfirmation: isChecked })
           }
           placeholder='require confirmation'
           style={styles.childCheckbox}
-        />
+        /> */}
         {/* Save as Template */}
-        {/* TODO: Add save as template option. Issue:  */}
+        {/* TODO: Add save as template option #12  */}
         {/* <CheckboxComponent
           onPress={(isChecked) =>
             setValues({ ...values, saveAsTemplate: isChecked })
